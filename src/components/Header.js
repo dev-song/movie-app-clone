@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const List = styled.ul`
@@ -6,20 +7,20 @@ const List = styled.ul`
     background-color: cornsilk;
   }
 `;
-
 const ListItem = styled.li``;
+const StyledLink = styled(Link)``;
 
 const Header = () => (
   <header>
     <List>
       <ListItem>
-        <a href="/">Movies</a>
+        <StyledLink to="/">Movies</StyledLink>
       </ListItem>
       <ListItem>
-        <a href="/tvshows">TV Shows</a>
+        <StyledLink to="/tvshows">TV Shows</StyledLink>
       </ListItem>
       <ListItem>
-        <a href="/search">Search</a>
+        <StyledLink to="/search">Search</StyledLink>
       </ListItem>
     </List>
   </header>
