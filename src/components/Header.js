@@ -1,16 +1,27 @@
+import styled from 'styled-components';
+
+const List = styled.ul`
+  display: flex;
+  &:hover {
+    background-color: cornsilk;
+  }
+`;
+
+const ListItem = styled.li``;
+
 const Header = () => (
   <header>
-    <ul>
-      <li>
+    <List>
+      <ListItem>
         <a href="/">Movies</a>
-      </li>
-      <li>
+      </ListItem>
+      <ListItem>
         <a href="/tvshows">TV Shows</a>
-      </li>
-      <li>
+      </ListItem>
+      <ListItem>
         <a href="/search">Search</a>
-      </li>
-    </ul>
+      </ListItem>
+    </List>
   </header>
 );
 
