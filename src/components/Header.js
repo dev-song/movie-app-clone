@@ -24,6 +24,7 @@ const ListItem = styled.li`
   height: 50px;
   border-bottom: 5px solid
     ${({ current }) => current ? '#3498db' : 'transparent'};
+  transition: border-bottom 0.4s ease-in-out;
 
   text-align: center;
 `;
