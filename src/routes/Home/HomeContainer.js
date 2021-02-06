@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HomePresenter from './HomePresenter';
 
-const HomeContainer = () => {
-  const [nowPlaying, setNowPlaying] = useState(null);
-  const [upcoming, setUpcoming] = useState(null);
-  const [popular, setPopular] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setloading] = useState(true);
+class HomeContainer extends React.Component {
+  state = {
+    nowPlaying: null,
+    upcoming: null,
+    popular: null,
+    error: null,
+    loading: null
+  };
 
-  return (
-    <HomePresenter
-      {...{ nowPlaying, upcoming, popular, error, loading }}
-    />
-  )
+  render() {
+    const { nowPlaying, upcoming, popular, error, loading } = this.state;
+
+    return (
+      <HomePresenter
+        {...{ nowPlaying, upcoming, popular, error, loading }}
+      />
+    );
+  }
 }
 
 export default HomeContainer;

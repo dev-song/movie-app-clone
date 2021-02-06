@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DetailPresenter from './DetailPresenter';
 
-const DetailContainer = () => {
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setloading] = useState(true);
+class DetailContainer extends React.Component {
+  state = {
+    result: null,
+    error: null,
+    loading: null
+  };
 
-  return (
-    <DetailPresenter
-      {...{ result, error, loading }}
-    />
-  )
+  render() {
+    const { result, error, loading } = this.state;
+
+    return (
+      <DetailPresenter
+        {...{ result, error, loading }}
+      />
+    );
+  }
 }
 
 export default DetailContainer;

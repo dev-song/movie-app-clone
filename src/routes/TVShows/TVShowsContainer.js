@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TVShowsPresenter from './TVShowsPresenter';
 
-const HomeContainer = () => {
-  const [topRated, setTopRated] = useState(null);
-  const [popular, setPopular] = useState(null);
-  const [airingToday, setAiringToday] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setloading] = useState(true);
+class TVShowsContainer extends React.Component {
+  state = {
+    topRated: null,
+    popular: null,
+    airingToday: null,
+    error: null,
+    loading: null
+  };
 
-  return (
-    <TVShowsPresenter
-      {...{ topRated, popular, airingToday, error, loading }}
-    />
-  )
+  render() {
+    const { topRated, popular, airingToday, error, loading } = this.state;
+
+    return (
+      <TVShowsPresenter
+        {...{ topRated, popular, airingToday, error, loading }}
+      />
+    )
+  }
 }
 
-export default HomeContainer;
+export default TVShowsContainer;

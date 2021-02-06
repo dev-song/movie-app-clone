@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SearchPresenter from './SearchPresenter';
 
-const SearchContainer = () => {
-  const [movieResults, setMovieResults] = useState(null);
-  const [tvResults, setTvResults] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [error, setError] = useState(null);
-  const [loading, setloading] = useState(false);
+class SearchContainer extends React.Component {
+  state = {
+    movieResults: null,
+    tvResults: null,
+    searchTerm: null,
+    error: null,
+    loading: null
+  };
 
-  return (
-    <SearchPresenter
-      {...{ movieResults, tvResults, searchTerm, error, loading }}
-    />
-  )
+  render() {
+    const { movieResults, tvResults, searchTerm, error, loading } = this.state;
+
+    return (
+      <SearchPresenter
+        {...{ movieResults, tvResults, searchTerm, error, loading }}
+      />
+    )
+  }
 }
 
 export default SearchContainer;
