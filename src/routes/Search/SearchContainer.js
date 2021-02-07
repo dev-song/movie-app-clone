@@ -8,7 +8,7 @@ class SearchContainer extends React.Component {
     movieResults: null,
     tvResults: null,
     searchTerm: '',
-    error: false,
+    error: null,
     loading: false
   };
 

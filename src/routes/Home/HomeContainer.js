@@ -8,7 +8,7 @@ class HomeContainer extends React.Component {
     nowPlaying: null,
     upcoming: null,
     popular: null,
-    error: false,
+    error: null,
     loading: true
   };
 
@@ -53,8 +53,6 @@ class HomeContainer extends React.Component {
 
   render() {
     const { nowPlaying, upcoming, popular, error, loading } = this.state;
-
-    console.log(this.state);
 
     return (
       <HomePresenter
