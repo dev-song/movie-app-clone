@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Section from '../../components/Section';
 import Loader from '../../components/Loader';
+import Message from '../../components/Message';
 
 const Container = styled.div`
   padding: 0px 10px;
@@ -28,6 +29,7 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) => loa
           {popular.map(({ title, id }) => <span key={id}>{title}</span>)}
         </Section>
       )}
+      {error && <Message text={error} color='#e74c3c' />}
     </Container>
   )
 

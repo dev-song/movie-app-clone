@@ -12,16 +12,16 @@ class SearchContainer extends React.Component {
     loading: false
   };
 
-  async searchByTerm() {
+  searchByTerm = async () => {
     const { searchTerm } = this.state;
     try {
       this.setState({ loading: true });
 
       const movieResults = await this.getMovieResults(searchTerm);
-      const TVResults = await this.getTVResults(searchTerm);
+      const tvResults = await this.getTVResults(searchTerm);
       this.setState({
         movieResults,
-        TVResults
+        tvResults
       });
     } catch {
       this.setState({ error: `Can't find results :(` });
@@ -30,7 +30,7 @@ class SearchContainer extends React.Component {
     }
   }
 
-  async getMovieResults(keyword) {
+  getMovieResults = async (keyword) => {
     const {
       data: { results: movieResults }
     } = await MOVIE_API.search(keyword);
@@ -44,11 +44,18 @@ class SearchContainer extends React.Component {
     return TVResults;
   }
 
-  handleSubmit() {
+  handleSubmit = (event) => {
+    event.preventDefault();
+
     const { searchTerm } = this.state;
     if (searchTerm === '') return;
 
     this.searchByTerm();
+  }
+
+  updateSearchTerm = (event) => {
+    const { target: { value } } = event;
+    this.setState({ searchTerm: value });
   }
 
   render() {
@@ -57,6 +64,7 @@ class SearchContainer extends React.Component {
     return (
       <SearchPresenter
         handleSubmit={this.handleSubmit}
+        updateSearchTerm={this.updateSearchTerm}
         {...{ movieResults, tvResults, searchTerm, error, loading, }}
       />
     )
