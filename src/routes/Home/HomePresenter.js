@@ -17,17 +17,47 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) => loa
     <Container>
       {nowPlaying && nowPlaying.length > 0 && (
         <Section title='Now Playing'>
-          {nowPlaying.map(({ title, id }) => <Poster />)}
+          {nowPlaying.map(({ id, original_title, poster_path, vote_average, release_date }) =>
+            <Poster
+              key={id}
+              id={id}
+              title={original_title}
+              imageUrl={poster_path}
+              rating={vote_average}
+              year={release_date && release_date.substring(0, 4)}
+              isMovie={true}
+            />
+          )}
         </Section>
       )}
       {upcoming && upcoming.length > 0 && (
         <Section title='Upcoming Movies'>
-          {upcoming.map(({ title, id }) => <Poster />)}
+          {upcoming.map(({ id, original_title, poster_path, vote_average, release_date }) =>
+            <Poster
+              key={id}
+              id={id}
+              title={original_title}
+              imageUrl={poster_path}
+              rating={vote_average}
+              year={release_date && release_date.substring(0, 4)}
+              isMovie={true}
+            />
+          )}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title='Popular Movies'>
-          {popular.map(({ title, id }) => <Poster />)}
+          {popular.map(({ id, original_title, poster_path, vote_average, release_date }) =>
+            <Poster
+              key={id}
+              id={id}
+              title={original_title}
+              imageUrl={poster_path}
+              rating={vote_average}
+              year={release_date && release_date.substring(0, 4)}
+              isMovie={true}
+            />
+          )}
         </Section>
       )}
       {error && <Message text={error} color='#e74c3c' />}
