@@ -47,15 +47,15 @@ const Year = styled.span`
 `;
 
 const THUMBNAIL_WIDTH = 300;
-const TMDB_API_ORIGIN = `https://image.tmdb.org/t/p/w${THUMBNAIL_WIDTH}`;
+const TMDB_IMG_URL = `https://image.tmdb.org/t/p/w${THUMBNAIL_WIDTH}`;
 
 const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
-  <Link to={`/${isMovie ? 'movie' : 'show'}/${id}`}>
+  <Link to={`/${isMovie ? 'movie' : 'tvshow'}/${id}`}>
     <Container>
       <ImageContainer>
         <Image
           bgUrl={imageUrl
-            ? `${TMDB_API_ORIGIN}${imageUrl}`
+            ? `${TMDB_IMG_URL}${imageUrl}`
             : require('../assets/X.png').default} // require로 image를 불러올 때 object를 return하므로 default key로 파일 경로에 접근
         />
         <Rating>
