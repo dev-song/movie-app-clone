@@ -10,6 +10,7 @@ class DetailContainer extends React.Component {
       location: { pathname }
     } = props;
     this.state = {
+      id: null,
       result: null,
       error: null,
       loading: true,
@@ -29,6 +30,7 @@ class DetailContainer extends React.Component {
     if (isNaN(parsedId)) {
       return push('/');
     }
+    this.setState({ id });
 
     let result = null;
     const { isMovie } = this.state;
@@ -44,11 +46,11 @@ class DetailContainer extends React.Component {
   }
 
   render() {
-    const { result, error, loading } = this.state;
+    const { id, result, error, loading, isMovie } = this.state;
 
     return (
       <DetailPresenter
-        {...{ result, error, loading }}
+        {...{ id, result, error, loading, isMovie }}
       />
     );
   }
